@@ -25,7 +25,7 @@ function getTmdb() {
           <div class="img-box">
             <img src="https://image.tmdb.org/t/p/w300/${moviePoster}" alt="${movieTitle}">
           </div>
-          <span class="movie-name">${movieTitle} <strong class="original-name">${movieOgTitle}</strong></span>
+          <span class="movie-name">${movieTitle} <strong class="original-name">(${movieOgTitle})</strong></span>
           <span class="movie-overview">${movieOverview}</span>
           <span class="movie-release-date">${movieReleaseDate}</span>
           <span class="movie-vote-average">${movieVoteAverage}</span>
