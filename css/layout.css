@@ -1,5 +1,6 @@
 .wrap {
   position: relative;
+  overflow: hidden;
   width: 100%;
   background-color: #0f0f0f;
 }

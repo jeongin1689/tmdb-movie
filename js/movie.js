@@ -20,15 +20,15 @@ function getTmdb() {
         let moviePoster = tmdb.results[i].poster_path;
 
         let movieInfo = document.createElement('div');
-        movieInfo.setAttribute("class","movie-info");
+        movieInfo.setAttribute("class","movie-info swiper-slide");
         movieInfo.innerHTML = `
           <div class="img-box">
             <img src="https://image.tmdb.org/t/p/w300/${moviePoster}" alt="${movieTitle}">
           </div>
-          <span class="movie-name">${movieTitle} <strong class="original-name">(${movieOgTitle})</strong></span>
-          <span class="movie-overview">${movieOverview}</span>
-          <span class="movie-release-date">${movieReleaseDate}</span>
-          <span class="movie-vote-average">${movieVoteAverage}</span>
+          <span class="movie-name">${movieTitle}</span>
+          <strong class="original-name">(${movieOgTitle})</strong>
+          <span class="movie-release-date">개봉일: ${movieReleaseDate}</span>
+          <span class="movie-vote-average">평점: ${movieVoteAverage}</span>
         `
         movieArea.appendChild(movieInfo);
       }
@@ -36,4 +36,21 @@ function getTmdb() {
   });
   return;
 }
-getTmdb();
+
+function initSwiper(){
+  const swiper = new Swiper(".swiper", {
+    loop: true,
+    loopAdditionalSlides: 1,
+    slidesPerView: 4,
+    spaceBetween: 20,
+    parallax: true,
+  });
+}
+
+
+
+function init() {
+  getTmdb();
+  initSwiper();
+}
+init();

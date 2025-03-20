@@ -1,27 +1,99 @@
 /* movie-wrap */
 .movie-wrap {
-  padding: 50px;
-  background-color: #312424;
+  position: relative;
+  padding: 100px;
+}
+.movie-area-title {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 700;
+  z-index: 2;
+}
+.parallax-bg {
+  position: absolute;
+  right: -5%;
+  top: 0;
+  width: 200%;
+  height: 200%;
+  filter: blur(37.5px);
+  background-image: url("../img/banner.jpg");
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
 }
 .movie-area {
-  display: grid;
-  justify-items: center;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  display: flex;
+}
+.swiper-wrapper {
+  align-items: center;
 }
 .movie-info {
-  padding: 20px;
-  margin: 20px;
+  position: relative;
+  height: auto;
   display: flex;
-  justify-content: flex-start;
   flex-direction: column;
   align-items: flex-start;
-  background-color: #fff;
+  justify-content: flex-start;
+  background-color: rgba(102, 102, 102, 0.8);
+  border-radius: 7px;
+  padding: 20px;
+  margin: 0;
+}
+.movie-info::before {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  border-bottom: 1px solid white;
+  border-right: 1px solid white;
+  border-radius: 0 0 7px 0;
+  content: "";
+  transition: all 0.3s ease;
+}
+.movie-info::after {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  border-bottom: 1px solid white;
+  border-right: 1px solid white;
+  border-radius: 0 0 7px 0;
+  content: "";
+  transition: all 0.3s ease;
+}
+.movie-info:hover {
+  background: linear-gradient(
+    135deg,
+    #e50914,
+    #d8050599,
+    #a8030399,
+    #7a020299,
+    #4d010199,
+    #38010199,
+    #22010199,
+    #11000099,
+    #11000099,
+    #11000099,
+    #11000099
+  );
+}
+.movie-info:hover::before,
+.movie-info:hover::after {
+  width: 170px;
+  height: 170px;
+  transition: all 0.3s ease;
 }
 .movie-info .img-box {
-  width: 300px;
+  overflow: hidden;
+  width: 260px;
   height: 400px;
   margin-bottom: 20px;
-  background-color: #c3e93b;
+  border-radius: 5px;
 }
 .movie-info .img-box img {
   width: 100%;
@@ -29,10 +101,18 @@
   object-fit: cover;
 }
 .movie-info .movie-name {
+  font-size: 18px;
+  color: #dbdbdb;
+}
+.movie-info .original-name {
   display: inline-block;
   margin-bottom: 10px;
-  color: #312424;
+  font-size: 15px;
+  color: #dbdbdb;
 }
-.movie-info .movie-name {
-  color: #312424;
+.movie-info .movie-release-date {
+  color: #dbdbdb;
+}
+.movie-info .movie-vote-average {
+  color: #dbdbdb;
 }
