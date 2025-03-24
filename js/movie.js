@@ -18,6 +18,7 @@ function getTmdb() {
         let movieReleaseDate = tmdb.results[i].release_date;
         let movieVoteAverage = tmdb.results[i].vote_average;
         let moviePoster = tmdb.results[i].poster_path;
+        let trimmedAverage = trimAverage(movieVoteAverage);
 
         let movieInfo = document.createElement('div');
         movieInfo.setAttribute("class","movie-info swiper-slide");
@@ -28,13 +29,19 @@ function getTmdb() {
           <span class="movie-name">${movieTitle}</span>
           <strong class="original-name">(${movieOgTitle})</strong>
           <span class="movie-release-date">개봉일: ${movieReleaseDate}</span>
-          <span class="movie-vote-average">평점: ${movieVoteAverage}</span>
+          <span class="movie-vote-average">평점: ${trimmedAverage}</span>
         `
         movieArea.appendChild(movieInfo);
       }
     }
   });
   return;
+}
+
+function trimAverage(voteAverage){
+  const averageResult = voteAverage.toFixed(1);
+
+  return averageResult;
 }
 
 function initSwiper(){
