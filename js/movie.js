@@ -1,11 +1,22 @@
 import config from "./config.js";
 const { TMDB_API_KEY } = config;
-const TMDB_URL = `https://api.themoviedb.org/3/movie/top_rated?api_key=${TMDB_API_KEY}&language=ko-KR"`;
+const TMDB_TOP_RATED_URL = `https://api.themoviedb.org/3/movie/top_rated?api_key=${TMDB_API_KEY}&language=ko-KR"`;
+const TMDB_POPULAR_URL = `https://api.themoviedb.org/3/movie/popular?api_key=${TMDB_API_KEY}&language=ko-KR"`;
 
 const movieArea = document.querySelector(".movie-area");
 
-function getTmdb() {
-  fetch(TMDB_URL)
+// function getPopularTmdb() {
+//   const movieWrap = document.createElement("div");
+//   movieWrap.setAttribute("class","movie-wrap");
+//   const wrap = document/
+
+//   movieWrap.innerHTML = `<h1>dddd</h1>`;
+
+
+// }
+
+function getTopRatedTmdb() {
+  fetch(TMDB_TOP_RATED_URL)
   .then(response => response.json())
   .then(json => {
     const tmdb = json;
@@ -34,7 +45,8 @@ function getTmdb() {
         movieArea.appendChild(movieInfo);
       }
     }
-  });
+  })
+  .catch(error => console.log('error', error));
   return;
 }
 
@@ -44,20 +56,8 @@ function trimAverage(voteAverage){
   return averageResult;
 }
 
-function initSwiper(){
-  const swiper = new Swiper(".swiper", {
-    loop: true,
-    loopAdditionalSlides: 1,
-    slidesPerView: 4,
-    spaceBetween: 20,
-    parallax: true,
-  });
-}
-
-
-
 function init() {
-  getTmdb();
-  initSwiper();
+  getTopRatedTmdb();
+  // getPopularTmdb();
 }
 init();

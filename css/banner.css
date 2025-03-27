@@ -41,24 +41,26 @@
 }
 .banner-title-box {
   position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 600px;
   z-index: 3;
 }
 .banner-title-box .banner-title {
   display: inline-block;
-  margin-bottom: 30px;
   color: #fff;
   font-weight: 800;
   font-size: 70px;
 }
-.banner-title-box .banner-desc {
+.banner-desc-box {
+  margin-top: 30px;
+  text-align: center;
+}
+.banner-desc-box .banner-desc {
   color: #fff;
   font-weight: 500;
   font-size: 20px;
+  opacity: 0;
+  transform: translateY(100px);
 }
