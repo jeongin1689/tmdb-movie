@@ -9,7 +9,6 @@ const TMDB_POPULAR_URL = `https://api.themoviedb.org/3/movie/popular?api_key=${T
 function getTopRatedTmdb() {
   const movieCard = document.querySelector(".movie-area");
 
-  // ✅ 수정됨: movie-area가 존재하는지 확인
   if (!movieCard) {
     console.error("Error: .movie-area 요소를 찾을 수 없습니다.");
     return;
@@ -29,13 +28,14 @@ function getTopRatedTmdb() {
           let movieOgTitle = movie.original_title;
           let movieReleaseDate = movie.release_date;
           let movieVoteAverage = movie.vote_average;
+          let trimmedAverage = trimAverage(movieVoteAverage);
 
           let newMovieCard = originalMovieCard
             .replace('<img src="https://image.tmdb.org/t/p/w300/" alt="">', `<img src="https://image.tmdb.org/t/p/w300/${moviePoster}" alt="${moviePoster}">`)
             .replace('<span class="movie-name"></span>', `<span class="movie-name">${movieTitle}</span>`)
             .replace('<strong class="original-name"></strong>', `<strong class="original-name">${movieOgTitle}</strong>`)
             .replace('<span class="movie-release-date">개봉일: </span>', `<span class="movie-release-date">개봉일: ${movieReleaseDate}</span>`)
-            .replace('<span class="movie-vote-average">평점: </span>', `<span class="movie-vote-average">평점: ${movieVoteAverage}</span>`);
+            .replace('<span class="movie-vote-average">평점: </span>', `<span class="movie-vote-average">평점: ${trimmedAverage}</span>`);
 
           repeatMovieCard += newMovieCard;
         });

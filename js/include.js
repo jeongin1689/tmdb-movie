@@ -61,16 +61,6 @@ async function loadMovieCard() {
   }
 }
 
-function init() {
-  loadHeader();
-  loadBanner();
-  loadMovieCard();
-}
-
-init();
-
-
-
 function init(){
   loadHeader();
   loadBanner();
