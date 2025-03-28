@@ -1,5 +1,8 @@
+console.log("include-js");
+
 const headerArea = document.querySelector(".header");
 const bannerArea = document.querySelector(".banner-wrap");
+const movieCardArea = document.querySelector(".movie-wrap");
 
 async function loadHeader() {
   if (!headerArea) {
@@ -29,14 +32,31 @@ async function loadBanner() {
     const html = await response.text();
     bannerArea.innerHTML = html;
   } catch (error) {
-    console.error("Error loading header:", error);
+    console.error("Error loading banner:", error);
   }
 }
 
+// async function loadMovieCard() {
+//   if (!movieCardArea) {
+//     console.error("Error: .movie-wrap 요소 찾을 수 없어요.");
+//     return;
+//   }
+
+//   try {
+//     console.log("loadMovie => 호출 성공");
+//     const response = await fetch("../views/movie-info.html");
+
+//     const html = await response.text();
+//     movieCardArea.innerHTML = html;
+//   } catch (error) {
+//     console.error("Error loading movie:", error);
+//   }
+// }
 
 
 function init(){
   loadHeader();
   loadBanner();
+  // loadMovieCard();
 }
 init();
