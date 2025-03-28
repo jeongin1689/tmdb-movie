@@ -36,27 +36,44 @@ async function loadBanner() {
   }
 }
 
-// async function loadMovieCard() {
-//   if (!movieCardArea) {
-//     console.error("Error: .movie-wrap 요소 찾을 수 없어요.");
-//     return;
-//   }
+async function loadMovieCard() {
+  const movieCardArea = document.querySelector(".movie-wrap"); // `.movie-wrap` 요소 확인
 
-//   try {
-//     console.log("loadMovie => 호출 성공");
-//     const response = await fetch("../views/movie-info.html");
+  if (!movieCardArea) {
+    console.error("Error: .movie-wrap 요소 찾을 수 없어요.");
+    return;
+  }
 
-//     const html = await response.text();
-//     movieCardArea.innerHTML = html;
-//   } catch (error) {
-//     console.error("Error loading movie:", error);
-//   }
-// }
+  try {
+    console.log("loadMovie => 호출 성공");
+    const response = await fetch("../views/movie-info.html");
+    const html = await response.text();
+
+    movieCardArea.innerHTML = html;
+
+    if (window.getTopRatedTmdb) {
+      window.getTopRatedTmdb();
+    } else {
+      console.error("Error: getTopRatedTmdb()를 찾을 수 없습니다.");
+    }
+  } catch (error) {
+    console.error("Error loading movie:", error);
+  }
+}
+
+function init() {
+  loadHeader();
+  loadBanner();
+  loadMovieCard();
+}
+
+init();
+
 
 
 function init(){
   loadHeader();
   loadBanner();
-  // loadMovieCard();
+  loadMovieCard();
 }
 init();
