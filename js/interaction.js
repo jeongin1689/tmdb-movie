@@ -23,11 +23,6 @@ const observer = new MutationObserver((mutations, obs) => {
 });
 observer.observe(document.body, { childList: true, subtree: true });
 
-// document.addEventListener("DOMContentLoaded", ()=> {
-// 	console.log("원하는 코드 적기")
-// });
-
-
 const swiper = new Swiper(".swiper", {
   loop: true,
   loopAdditionalSlides: 1,

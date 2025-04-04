@@ -37,7 +37,7 @@ async function loadBanner() {
 }
 
 async function loadMovieCard() {
-  const movieCardArea = document.querySelector(".movie-wrap"); // `.movie-wrap` 요소 확인
+  const movieCardArea = document.querySelector(".movie-wrap");
 
   if (!movieCardArea) {
     console.error("Error: .movie-wrap 요소 찾을 수 없어요.");
